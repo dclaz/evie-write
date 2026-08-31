@@ -1,0 +1,297 @@
+/* ============================================================
+   Evie's Writing Workbook — shared print styles
+   A4 portrait, self-hosted fonts, pastel "storybook" palette.
+   ============================================================ */
+
+@font-face {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 400 700;
+  src: url('fonts/Baloo2.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400 800;
+  src: url('fonts/Nunito.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Edu VIC WA NT Beginner';
+  font-style: normal;
+  font-weight: 400 700;
+  src: url('fonts/EduVicBeginner.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Edu AU VIC WA NT Hand';
+  font-style: normal;
+  font-weight: 400 700;
+  src: url('fonts/EduAuVicHand.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Edu AU VIC WA NT Dots';
+  font-style: normal;
+  font-weight: 400 700;
+  src: url('fonts/EduAuVicDots.woff2') format('woff2');
+}
+
+:root {
+  --ink: #3a3a4a;
+  --soft-ink: #6b6b80;
+  --paper: #fffdf8;
+  --line-baseline: #4a5a8a;
+  --line-mid: #9fb0d9;
+  --line-faint: #c9d2e6;
+  --trace-gray: #cfd3dc;
+
+  --coral: #ff8b7b;
+  --coral-dk: #e5644f;
+  --sun: #ffc857;
+  --sun-dk: #e0a11e;
+  --mint: #7bd6b0;
+  --mint-dk: #3fae83;
+  --sky: #7bb8f0;
+  --sky-dk: #3e85c9;
+  --lav: #b39ddb;
+  --lav-dk: #8467c7;
+  --pink: #f6a6c1;
+  --pink-dk: #dd6e97;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #e9ebf1;
+  font-family: 'Nunito', sans-serif;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  background: var(--paper);
+  overflow: hidden;
+  page-break-after: always;
+  break-after: page;
+  margin: 0 auto;
+  padding: 12mm 14mm 10mm 14mm;
+  display: flex;
+  flex-direction: column;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+
+/* --- decorative dotted paper texture, very faint --- */
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #00000009 1px, transparent 1.3px);
+  background-size: 9mm 9mm;
+  opacity: 0.5;
+}
+
+/* ---------- header ---------- */
+.wsheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6mm;
+  z-index: 1;
+}
+.wsheader .titles { display: flex; flex-direction: column; gap: 1mm; }
+.wsheader .kicker {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 600;
+  font-size: 11pt;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--accent-dk, var(--sky-dk));
+}
+.wsheader h1 {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: 30pt;
+  margin: 0;
+  color: var(--ink);
+  line-height: 1;
+}
+.badge {
+  flex: 0 0 auto;
+  width: 24mm;
+  height: 24mm;
+}
+
+.divider {
+  height: 3mm;
+  margin: 4mm 0 5mm 0;
+  border-radius: 3mm;
+  background: repeating-linear-gradient(90deg,
+    var(--accent, var(--sky)) 0 8mm, transparent 8mm 11mm);
+  z-index: 1;
+}
+
+/* ---------- tip / instruction callout ---------- */
+.tip {
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 4mm;
+  background: var(--accent-bg, #eef4fd);
+  border: 1.4pt solid var(--accent, var(--sky));
+  border-radius: 6mm;
+  padding: 4mm 6mm;
+  margin-bottom: 6mm;
+}
+.tip .tip-icon { flex: 0 0 auto; width: 14mm; height: 14mm; }
+.tip p {
+  margin: 0;
+  font-size: 13pt;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.tip .say {
+  font-weight: 800;
+  font-style: italic;
+  color: var(--accent-dk, var(--sky-dk));
+}
+
+/* ---------- footer ---------- */
+.wsfooter {
+  z-index: 1;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 9.5pt;
+  color: var(--soft-ink);
+  padding-top: 3mm;
+}
+.wsfooter .book-name { font-weight: 600; }
+.wsfooter .dots { letter-spacing: 3px; }
+
+/* ---------- handwriting guide lines ---------- */
+/* Two-line guide for capitals: headline + baseline */
+.guide-caps {
+  position: relative;
+  width: 100%;
+  height: var(--gh, 34mm);
+  z-index: 1;
+}
+.guide-caps .rule-top,
+.guide-caps .rule-base {
+  position: absolute; left: 0; right: 0; height: 0;
+  border-top: 1pt solid var(--line-mid);
+}
+.guide-caps .rule-top { top: 0; }
+.guide-caps .rule-base { top: var(--base, 30mm); border-top: 1.6pt solid var(--line-baseline); }
+.guide-caps .content-row {
+  position: absolute; left: 0; right: 0; top: 0;
+  height: var(--base, 30mm);
+  display: flex; align-items: flex-end;
+}
+
+/* Four-line guide for lowercase / cursive (headline, x-height, baseline,
+   descender) is drawn as one SVG per row — see guide4Row() in templates.mjs.
+   SVG <text> gives an exact glyph-baseline position, which plain CSS box
+   alignment can't guarantee for a font with generous descender metrics. */
+
+.row-label {
+  position: absolute; left: -1mm; top: 50%; transform: translateY(-50%) rotate(0deg);
+  font-family: 'Baloo 2'; font-size: 7.5pt; color: var(--soft-ink);
+}
+
+/* Practice text styling */
+.model {
+  font-weight: 400;
+  color: var(--ink);
+}
+.trace { color: var(--trace-gray); }
+.model.caps-font, .trace.caps-font { font-family: 'Edu VIC WA NT Beginner', sans-serif; }
+.model.hand-font { font-family: 'Edu AU VIC WA NT Hand', cursive; }
+.trace.dots-font { font-family: 'Edu AU VIC WA NT Dots', cursive; }
+
+.start-dot {
+  fill: var(--mint-dk);
+}
+
+/* Accent color helper classes (rotate per page) */
+.accent-coral { --accent: var(--coral); --accent-dk: var(--coral-dk); --accent-bg: #fff1ee; }
+.accent-sun   { --accent: var(--sun);   --accent-dk: var(--sun-dk);   --accent-bg: #fff8e6; }
+.accent-mint  { --accent: var(--mint);  --accent-dk: var(--mint-dk);  --accent-bg: #eafbf3; }
+.accent-sky   { --accent: var(--sky);   --accent-dk: var(--sky-dk);   --accent-bg: #eef6ff; }
+.accent-lav   { --accent: var(--lav);   --accent-dk: var(--lav-dk);   --accent-bg: #f4f0fc; }
+.accent-pink  { --accent: var(--pink);  --accent-dk: var(--pink-dk);  --accent-bg: #fff0f5; }
+
+/* ---------- cover page ---------- */
+.cover {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8mm;
+}
+.cover .cover-badge { width: 70mm; height: 70mm; }
+.cover .series {
+  font-family: 'Baloo 2'; font-weight: 600; font-size: 15pt;
+  color: var(--sky-dk); text-transform: uppercase; letter-spacing: 2px;
+  z-index: 1;
+}
+.cover h1 {
+  font-family: 'Baloo 2'; font-weight: 700; font-size: 46pt; margin: 0;
+  color: var(--ink); z-index: 1; line-height: 1.05;
+}
+.cover .sub {
+  font-size: 15pt; font-weight: 700; color: var(--soft-ink); max-width: 130mm; z-index: 1;
+}
+.cover .owner {
+  z-index: 1;
+  margin-top: 10mm;
+  font-family: 'Edu AU VIC WA NT Hand';
+  font-size: 20pt;
+  color: var(--ink);
+  border-top: 1.6pt solid var(--line-baseline);
+  padding-top: 3mm;
+  min-width: 90mm;
+}
+.cover .owner-label {
+  font-family: 'Baloo 2'; font-size: 10pt; color: var(--soft-ink); z-index: 1;
+}
+
+/* ---------- letter flashcard block (Book 2 & 3) ---------- */
+.letter-hero {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8mm;
+  margin-bottom: 5mm;
+}
+.letter-hero .big-letter {
+  font-family: 'Edu VIC WA NT Beginner', sans-serif;
+  font-size: 64pt;
+  line-height: 1;
+  color: var(--accent-dk, var(--sky-dk));
+}
+.letter-hero .big-letter.hand-font { font-family: 'Edu AU VIC WA NT Hand', cursive; }
+.letter-hero .icon-card {
+  flex: 0 0 auto;
+  width: 30mm; height: 30mm;
+  border-radius: 6mm;
+  background: var(--accent-bg, #eef4fd);
+  border: 1.4pt solid var(--accent, var(--sky));
+  display: flex; align-items: center; justify-content: center;
+}
+.letter-hero .icon-card svg { width: 20mm; height: 20mm; }
+.letter-hero .word-label {
+  font-family: 'Baloo 2'; font-weight: 700; font-size: 13pt; color: var(--ink);
+}
+
+/* misc */
+.stack { display: flex; flex-direction: column; gap: 5mm; z-index:1; flex: 1; justify-content: space-between; }
+.center-icons { display: flex; align-items: center; justify-content: center; gap: 10mm; z-index: 1; flex: 1; }
+.hidden-print-note { font-size: 8pt; color: var(--soft-ink); }
