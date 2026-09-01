@@ -154,7 +154,7 @@ function guideCapsRow({ h, base, items, justify = 'space-between' }) {
 const ROW_WIDTH_MM = 182; // matches .page inner content width (210mm - 14mm*2)
 const DOTS_FONT = `'Edu AU VIC WA NT Dots', cursive`;
 
-function guide4Row({ h, mid, base, items, sizeMm, color = 'var(--trace-gray)', font = DOTS_FONT, startDots = false }) {
+function guide4Row({ h, mid, base, items, sizeMm, color = 'var(--trace-gray)', font = DOTS_FONT }) {
   const n = items.length;
   const margin = 10;
   const usable = ROW_WIDTH_MM - margin * 2;
@@ -162,10 +162,7 @@ function guide4Row({ h, mid, base, items, sizeMm, color = 'var(--trace-gray)', f
   const texts = items.map((text, i) => {
     if (!text) return '';
     const cx = n === 1 ? margin : margin + step * i + step / 2;
-    const dot = startDots
-      ? `<circle cx="${(cx - sizeMm * 0.32).toFixed(1)}" cy="${(base - sizeMm * 0.5).toFixed(1)}" r="1.3" fill="#3fae83"/>`
-      : '';
-    return `${dot}<text x="${cx.toFixed(1)}" y="${base}" text-anchor="middle"
+    return `<text x="${cx.toFixed(1)}" y="${base}" text-anchor="middle"
       font-family="${font}" font-size="${sizeMm}" fill="${color}">${text}</text>`;
   }).join('');
   return `
@@ -219,8 +216,8 @@ export function cursiveLetterPage(entry, idx, total, book = 3, n, nTotal) {
     </div>
     ${tipBox({ text: tip, say: 'Nice and joined-up!', icon: deco.check })}
     <div class="stack">
-      ${guide4Row({ h: 24, mid: 9, base: 17, items: rep(4), sizeMm: 16, startDots: true })}
-      ${guide4Row({ h: 22, mid: 8, base: 15, items: rep(5), sizeMm: 14, startDots: true })}
+      ${guide4Row({ h: 24, mid: 9, base: 17, items: rep(4), sizeMm: 16 })}
+      ${guide4Row({ h: 22, mid: 8, base: 15, items: rep(5), sizeMm: 14 })}
       ${guide4Row({ h: 22, mid: 8, base: 15, items: [] })}
     </div>
     ${footer({ book, pageNum: idx, total })}`;
@@ -240,8 +237,8 @@ export function cursiveWordPage(entry, idx, total, book = 3, n, nTotal) {
     </div>
     ${tipBox({ text: tip, say: `Keep your pencil moving — don’t lift it!`, icon: deco.check })}
     <div class="stack">
-      ${guide4Row({ h: 26, mid: 10, base: 19, items: rep(2), sizeMm: 17, startDots: true })}
-      ${guide4Row({ h: 24, mid: 9, base: 17, items: rep(3), sizeMm: 15, startDots: true })}
+      ${guide4Row({ h: 26, mid: 10, base: 19, items: rep(2), sizeMm: 17 })}
+      ${guide4Row({ h: 24, mid: 9, base: 17, items: rep(3), sizeMm: 15 })}
       ${guide4Row({ h: 24, mid: 9, base: 17, items: [] })}
     </div>
     ${footer({ book, pageNum: idx, total })}`;
@@ -304,8 +301,8 @@ export function namePageCursive({ book, name, total, idx, accent }) {
     </div>
     ${tipBox({ text: `Start with the tall capital letter, then keep your pencil moving through the rest of your name.`, say: `That’s ME!`, icon: deco.check })}
     <div class="stack">
-      ${guide4Row({ h: 30, mid: 12, base: 22, items: [proper, proper], sizeMm: 22, startDots: true })}
-      ${guide4Row({ h: 28, mid: 11, base: 20, items: [proper, proper], sizeMm: 19, startDots: true })}
+      ${guide4Row({ h: 30, mid: 12, base: 22, items: [proper, proper], sizeMm: 22 })}
+      ${guide4Row({ h: 28, mid: 11, base: 20, items: [proper, proper], sizeMm: 19 })}
       ${guide4Row({ h: 28, mid: 11, base: 20, items: [] })}
     </div>
     ${footer({ book, pageNum: idx, total })}`;
@@ -323,7 +320,6 @@ export function alphabetReferencePage({ book, accent, title, glyphs, fontClass, 
     <div style="display:flex;align-items:center;gap:3mm;">${mark}
       <span style="font-family:'Baloo 2';font-weight:700;font-size:10.5pt;color:var(--ink);">${text}</span>
     </div>`;
-  const dot = `<svg width="6mm" height="6mm" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="#3fae83"/></svg>`;
   const baseLine = `<svg width="14mm" height="4mm" viewBox="0 0 20 4"><line x1="0" y1="2" x2="20" y2="2" stroke="var(--line-baseline)" stroke-width="2"/></svg>`;
   const dashLine = `<svg width="14mm" height="4mm" viewBox="0 0 20 4"><line x1="0" y1="2" x2="20" y2="2" stroke="var(--line-mid)" stroke-width="1.6" stroke-dasharray="2.5 2.5"/></svg>`;
   const inner = `
@@ -333,7 +329,6 @@ export function alphabetReferencePage({ book, accent, title, glyphs, fontClass, 
     </p>
     <div style="display:flex;gap:8mm;flex-wrap:wrap;margin-bottom:8mm;background:var(--accent-bg);
       border:1.4pt solid var(--accent);border-radius:6mm;padding:5mm 6mm;z-index:1;">
-      ${legendItem(dot, 'Green dot — start here')}
       ${legendItem(baseLine, 'Solid line — sit letters on this')}
       ${legendItem(dashLine, 'Dashed line — top of small letters')}
     </div>

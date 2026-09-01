@@ -68,7 +68,7 @@ function buildBook3() {
     paragraphs: [
       `This book uses the <b>VIC Modern Cursive</b> style taught in Victorian schools — the same joined-up handwriting ${CHILD_NAME} will use for years to come.`,
       `Cursive is usually introduced a little later than the toddler years, so there's no rush at all. Let ${CHILD_NAME} lead: some days might just be finger-tracing the shapes in the air, and that's perfect too.`,
-      `Each letter starts at the green dot. Encourage one smooth, unlifted stroke where you can — the loops and joins are what make cursive fast and fun once they click!`,
+      `Encourage one smooth, unlifted stroke where you can — the loops and joins are what make cursive fast and fun once they click!`,
     ],
   }));
   pages.push(alphabetReferencePage({
