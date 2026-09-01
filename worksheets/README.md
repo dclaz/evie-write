@@ -51,10 +51,14 @@ node build.mjs --pdf    # also renders output/*.pdf via the pre-installed
 - [`data.mjs`](scripts/data.mjs) — all the words, letters, tip text and
   colour assignments. Edit this to change wording, add words, or swap the
   child's name (`CHILD_NAME`).
-- [`icons.mjs`](scripts/icons.mjs) — the emoji used for the 26 "A is
-  for..." flashcards and header/badge decorations (rendered by the
-  system's colour emoji font — Playwright's headless Chromium has one
-  preinstalled).
+- [`icons.mjs`](scripts/icons.mjs) — loads the emoji artwork used for the
+  26 "A is for..." flashcards and header/badge decorations from
+  [`src/emoji/`](src/emoji) and inlines it as SVG. These are
+  [Noto Emoji](https://github.com/googlefonts/noto-emoji) vector source
+  files (Apache-2.0), not the system's emoji *font* — a font's colour
+  emoji glyphs are usually fixed-resolution bitmaps, crisp at small icon
+  sizes but visibly pixelated blown up to the size of the cover badge;
+  the vector originals stay sharp at any size.
 - [`templates.mjs`](scripts/templates.mjs) — page layout functions (one per
   page type: shape page, capital letter page, cursive letter/word page,
   cover, etc).
