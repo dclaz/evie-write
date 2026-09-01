@@ -21,24 +21,6 @@ export const deco = {
   check: '✅',
 };
 
-/* ---------------- Book 1: line & shape "reveal" pictures ---------------- */
-// Each connects the abstract practised stroke to something recognisable.
-
-export const shapePicture = {
-  vertical: '🚀',
-  horizontal: '🛣️',
-  circle: deco.sun,
-  cross: '🩹',
-  diagRight: '🛝',
-  diagLeft: '🌠',
-  square: '🎁',
-  triangle: '🍦',
-  zigzag: '⚡',
-  wave: '🌊',
-  loop: '🌀',
-  spiral: '🐌',
-};
-
 /* ---------------- Book 2: A-is-for-Apple style letter icons ---------------- */
 
 export const letterIcons = {

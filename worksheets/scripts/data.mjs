@@ -11,73 +11,61 @@ export const SHAPES = [
     id: 'vertical', title: 'Straight Down', accent: 'sky',
     say: 'Top... to... bottom!',
     tip: 'Start at the dot. Pull your pencil straight DOWN to the line.',
-    reveal: 'A straight line can be a candle, a tree trunk, or a rocket!',
   },
   {
     id: 'horizontal', title: 'Straight Across', accent: 'coral',
     say: 'Zoooom, all the way across!',
     tip: 'Start at the dot. Slide your pencil straight ACROSS to the arrow.',
-    reveal: 'A straight line across can be a road, a shelf, or a big smile.',
   },
   {
     id: 'circle', title: 'Round and Round', accent: 'sun',
     say: 'Round... and round... and round!',
     tip: 'Start at the dot. Go round and round, just like a wheel.',
-    reveal: 'Circles make wheels, buttons, and a big bright sun!',
   },
   {
     id: 'cross', title: 'Criss Cross', accent: 'pink',
     say: 'Down... then across!',
     tip: 'First pull straight DOWN. Then slide straight ACROSS. Two lines make a cross!',
-    reveal: 'Crosses make a plus sign, a kiss, and a bandage on a teddy bear.',
   },
   {
     id: 'diagRight', title: 'Slanty Line', accent: 'lav',
     say: 'Slide down the slide!',
     tip: 'Start at the top dot. Slide down to the bottom, like a playground slide.',
-    reveal: 'A slanty line is a slide, a rocket ramp, or a shooting star trail.',
   },
   {
     id: 'diagLeft', title: 'Slanty Line the Other Way', accent: 'mint',
     say: 'Whoosh, the other way!',
     tip: 'Start at the top dot. Slide down the OTHER way this time.',
-    reveal: 'Two slanty lines together will soon make a letter A!',
   },
   {
     id: 'square', title: 'Boxy Square', accent: 'sky',
     say: 'Across, down, across, up!',
     tip: 'Trace all four sides: across the top, down the side, across the bottom, up the side.',
-    reveal: 'Squares make presents, windows, and picture frames!',
   },
   {
     id: 'triangle', title: 'Pointy Triangle', accent: 'coral',
     say: 'Up to the point, then down!',
     tip: 'Slide up to the point, slide down the other side, then straight across to close it.',
-    reveal: 'Triangles make ice-cream cones, party hats, and tall trees.',
   },
   {
     id: 'zigzag', title: 'Zig Zag', accent: 'mint',
     say: 'Zig! Zag! Zig! Zag!',
     tip: 'Bounce your pencil up and down like little mountains.',
-    reveal: 'Zig-zags make mountains, lightning bolts, and crocodile teeth!',
   },
   {
     id: 'wave', title: 'Wavy Line', accent: 'sky',
     say: 'Up and over, like the sea!',
     tip: 'Curve gently up and down, smooth like water. No sharp corners!',
-    reveal: 'Wavy lines make the sea, a snake, and a wriggly worm.',
   },
   {
     id: 'loop', title: 'Loop the Loop', accent: 'lav',
     say: 'Round, up, and over!',
     tip: 'Swing your pencil up, round in a loop, then straight into the next loop.',
-    reveal: 'Loops are the secret move behind lots of cursive letters — great practice!',
   },
   {
     id: 'spiral', title: 'Snail Spiral', accent: 'sun',
     say: 'Round and round, bigger and bigger!',
     tip: 'Start in the middle. Curl round and round, getting bigger every time.',
-    reveal: 'Spirals make a snail shell, a lollipop swirl, and curly hair!',
   },
 ];
 

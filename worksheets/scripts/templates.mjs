@@ -1,4 +1,4 @@
-import { deco, shapePicture, letterIcons } from './icons.mjs';
+import { deco, letterIcons } from './icons.mjs';
 
 const BOOK_META = {
   1: { name: 'Book 1 · Lines & Shapes', kicker: 'Evie’s Writing Workbook' },
@@ -116,20 +116,17 @@ function shapeRow(children) {
 export function shapePage(shape, idx, total, book = 1) {
   const badge = deco.pencil;
   const rows = [
-    shapeRow([shapeTile(shape.id, 'model', 34), shapeTile(shape.id, 'trace', 34), shapeTile(shape.id, 'trace', 34)]),
+    shapeRow([shapeTile(shape.id, 'model', 32), shapeTile(shape.id, 'trace', 32), shapeTile(shape.id, 'trace', 32)]),
     shapeRow([shapeTile(shape.id, 'trace', 26), shapeTile(shape.id, 'trace', 26), shapeTile(shape.id, 'trace', 26), shapeTile(shape.id, 'trace', 26)]),
-    shapeRow([blankTile(26), blankTile(26), blankTile(26), blankTile(26)]),
+    shapeRow([shapeTile(shape.id, 'trace', 24), shapeTile(shape.id, 'trace', 24), shapeTile(shape.id, 'trace', 24), shapeTile(shape.id, 'trace', 24)]),
+    shapeRow([blankTile(24), blankTile(24), blankTile(24), blankTile(24)]),
+    shapeRow([blankTile(24), blankTile(24), blankTile(24), blankTile(24)]),
   ];
-  const picture = shapePicture[shape.id] || deco.star;
   const inner = `
     ${header({ kicker: `Book 1 · Lines & Shapes · ${shape.title}`, title: shape.title, badge })}
     ${tipBox({ text: shape.tip, say: shape.say, icon: badge })}
     <div class="stack">
       ${rows.map(r => `<div>${r}</div>`).join('')}
-      <div style="display:flex;align-items:center;gap:6mm;margin-top:2mm;background:var(--accent-bg);border:1.4pt solid var(--accent);border-radius:6mm;padding:4mm 6mm;">
-        <div style="width:22mm;height:22mm;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:17mm;line-height:1;">${picture}</div>
-        <p style="margin:0;font-family:'Baloo 2';font-weight:700;font-size:12.5pt;color:var(--ink);">${shape.reveal}</p>
-      </div>
     </div>
     ${footer({ book, pageNum: idx, total })}`;
   return page(shape.accent, 'p-shape', inner);

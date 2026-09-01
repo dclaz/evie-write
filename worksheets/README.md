@@ -23,15 +23,18 @@ lines to come out at a true, pencil-friendly size.
     Modern Cursive font and its dotted tracing companion, for Book 3.
   - `Baloo 2` / `Nunito` — friendly display and body text.
 - Every practice row is genuinely traceable: light-grey capitals, real
-  dotted-outline cursive letters, a green start dot, and ruled guide lines
-  (2-line for capitals, 4-line headline/x-height/baseline/descender for
-  cursive) so a pencil has something to follow, not just decoration.
+  dotted-outline cursive letters, and ruled guide lines (2-line for
+  capitals, 4-line headline/x-height/baseline/descender for cursive) so a
+  pencil has something to follow, not just decoration. Book 1's shape
+  tiles additionally mark the stroke's start point with a green dot
+  (precise there, since each shape's start is fixed geometry — unlike a
+  cursive glyph's entry stroke, which varies letter to letter).
 - Cursive rows are drawn as SVG so each letter's baseline lines up exactly
   with the ruled baseline — this font's generous descender metrics (for its
   loopy g/y/j/z) throw off plain CSS text alignment otherwise.
-- Book 1's shapes each end with a one-line "reveal" connecting the abstract
-  line to something recognisable (circles → sun, triangles → ice-cream
-  cone, loops → the secret move behind cursive letters).
+- Book 1's shape pages give five rows per shape (three traceable, shrinking
+  in guidance, then two fully blank) rather than a single demo row, so
+  there's plenty of repetition to build the motor pattern.
 
 ## Regenerating / editing
 
@@ -49,9 +52,9 @@ node build.mjs --pdf    # also renders output/*.pdf via the pre-installed
   colour assignments. Edit this to change wording, add words, or swap the
   child's name (`CHILD_NAME`).
 - [`icons.mjs`](scripts/icons.mjs) — the emoji used for the 26 "A is
-  for..." flashcards, decorations, and Book 1's reveal pictures (rendered
-  by the system's colour emoji font — Playwright's headless Chromium has
-  one preinstalled).
+  for..." flashcards and header/badge decorations (rendered by the
+  system's colour emoji font — Playwright's headless Chromium has one
+  preinstalled).
 - [`templates.mjs`](scripts/templates.mjs) — page layout functions (one per
   page type: shape page, capital letter page, cursive letter/word page,
   cover, etc).
