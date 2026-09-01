@@ -190,9 +190,10 @@ export function capitalLetterPage(entry, idx, total, book = 2, n, nTotal) {
     </div>
     ${tipBox({ text: tip, say: 'Big line, then the little bits!', icon: deco.check })}
     <div class="stack">
-      ${guideCapsRow({ h: 32, base: 27, items: traceBig, justify: 'space-around' })}
-      ${guideCapsRow({ h: 28, base: 24, items: traceMed, justify: 'space-around' })}
-      ${guideCapsRow({ h: 28, base: 24, items: [''], justify: 'flex-start' })}
+      ${guideCapsRow({ h: 30, base: 25, items: traceBig, justify: 'space-around' })}
+      ${guideCapsRow({ h: 26, base: 22, items: traceMed, justify: 'space-around' })}
+      ${guideCapsRow({ h: 26, base: 22, items: [''], justify: 'flex-start' })}
+      ${guideCapsRow({ h: 26, base: 22, items: [''], justify: 'flex-start' })}
     </div>
     ${footer({ book, pageNum: idx, total })}`;
   return page(accent, 'p-cap', inner);
