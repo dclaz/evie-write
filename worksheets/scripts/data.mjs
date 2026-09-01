@@ -87,9 +87,9 @@ export const SHAPES = [
 const A2Z = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const WORD_FOR = {
   A: 'Apple', B: 'Ball', C: 'Cat', D: 'Duck', E: 'Egg', F: 'Fish',
-  G: 'Grapes', H: 'House', I: 'Ice Cream', J: 'Jam', K: 'Kite', L: 'Leaf',
+  G: 'Grapes', H: 'House', I: 'Ice Cream', J: 'Jellyfish', K: 'Kite', L: 'Leaf',
   M: 'Mountain', N: 'Nest', O: 'Orange', P: 'Pear', Q: 'Queen', R: 'Rainbow',
-  S: 'Sun', T: 'Arrow', U: 'Umbrella', V: 'Vase', W: 'Watermelon',
+  S: 'Sun', T: 'Trophy', U: 'Umbrella', V: 'Vase', W: 'Watermelon',
   X: 'Xylophone', Y: 'Yo-yo', Z: 'Zebra',
 };
 const TIP_FOR = {

@@ -124,6 +124,11 @@ html, body {
   flex: 0 0 auto;
   width: 24mm;
   height: 24mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19mm;
+  line-height: 1;
 }
 
 .divider {
@@ -147,7 +152,11 @@ html, body {
   padding: 4mm 6mm;
   margin-bottom: 6mm;
 }
-.tip .tip-icon { flex: 0 0 auto; width: 14mm; height: 14mm; }
+.tip .tip-icon {
+  flex: 0 0 auto; width: 14mm; height: 14mm;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11mm; line-height: 1;
+}
 .tip p {
   margin: 0;
   font-size: 13pt;
@@ -217,10 +226,6 @@ html, body {
 .model.hand-font { font-family: 'Edu AU VIC WA NT Hand', cursive; }
 .trace.dots-font { font-family: 'Edu AU VIC WA NT Dots', cursive; }
 
-.start-dot {
-  fill: var(--mint-dk);
-}
-
 /* Accent color helper classes (rotate per page) */
 .accent-coral { --accent: var(--coral); --accent-dk: var(--coral-dk); --accent-bg: #fff1ee; }
 .accent-sun   { --accent: var(--sun);   --accent-dk: var(--sun-dk);   --accent-bg: #fff8e6; }
@@ -231,12 +236,18 @@ html, body {
 
 /* ---------- cover page ---------- */
 .cover {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   gap: 8mm;
 }
-.cover .cover-badge { width: 70mm; height: 70mm; }
+.cover .cover-badge {
+  width: 70mm; height: 70mm;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 52mm; line-height: 1;
+}
 .cover .series {
   font-family: 'Baloo 2'; font-weight: 600; font-size: 15pt;
   color: var(--sky-dk); text-transform: uppercase; letter-spacing: 2px;
@@ -285,8 +296,8 @@ html, body {
   background: var(--accent-bg, #eef4fd);
   border: 1.4pt solid var(--accent, var(--sky));
   display: flex; align-items: center; justify-content: center;
+  font-size: 20mm; line-height: 1;
 }
-.letter-hero .icon-card svg { width: 20mm; height: 20mm; }
 .letter-hero .word-label {
   font-family: 'Baloo 2'; font-weight: 700; font-size: 13pt; color: var(--ink);
 }

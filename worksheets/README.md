@@ -48,8 +48,10 @@ node build.mjs --pdf    # also renders output/*.pdf via the pre-installed
 - [`data.mjs`](scripts/data.mjs) — all the words, letters, tip text and
   colour assignments. Edit this to change wording, add words, or swap the
   child's name (`CHILD_NAME`).
-- [`icons.mjs`](scripts/icons.mjs) — the hand-drawn flat-SVG icon set (26
-  "A is for..." flashcard icons + decorations + Book 1's reveal pictures).
+- [`icons.mjs`](scripts/icons.mjs) — the emoji used for the 26 "A is
+  for..." flashcards, decorations, and Book 1's reveal pictures (rendered
+  by the system's colour emoji font — Playwright's headless Chromium has
+  one preinstalled).
 - [`templates.mjs`](scripts/templates.mjs) — page layout functions (one per
   page type: shape page, capital letter page, cursive letter/word page,
   cover, etc).
