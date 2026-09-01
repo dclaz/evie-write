@@ -29,3 +29,10 @@ export const letterIcons = {
   O: '🍊', P: '🍐', Q: '👑', R: '🌈', S: '☀️', T: '🏆', U: '☂️',
   V: '🏺', W: '🍉', X: '🩻', Y: '🪀', Z: '🦓',
 };
+
+/* ---------------- Book 3: first-word icons ---------------- */
+
+export const wordIcons = {
+  mum: '👩', dad: '👨', cat: '🐱', dog: '🐶', sun: '☀️', hat: '🎩',
+  run: '🏃', big: '🐘', red: '🔴', yes: '✅', bee: '🐝', fox: '🦊',
+};

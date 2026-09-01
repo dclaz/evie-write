@@ -73,7 +73,7 @@ export const SHAPES = [
    BOOK 2 — Capital Letters A–Z (Edu VIC WA NT Beginner font)
    ============================================================ */
 const A2Z = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-const WORD_FOR = {
+export const WORD_FOR = {
   A: 'Apple', B: 'Ball', C: 'Cat', D: 'Duck', E: 'Egg', F: 'Fish',
   G: 'Grapes', H: 'House', I: 'Ice Cream', J: 'Jellyfish', K: 'Kite', L: 'Leaf',
   M: 'Mountain', N: 'Nest', O: 'Orange', P: 'Pear', Q: 'Queen', R: 'Rainbow',
@@ -149,6 +149,7 @@ const CTIP_FOR = {
 };
 export const CURSIVE_LETTERS = a2z.map((l, i) => ({
   letter: l,
+  word: WORD_FOR[l.toUpperCase()],
   tip: CTIP_FOR[l],
   accent: ['sky', 'coral', 'sun', 'mint', 'lav', 'pink'][i % 6],
 }));

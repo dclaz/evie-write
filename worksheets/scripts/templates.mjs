@@ -1,4 +1,4 @@
-import { deco, letterIcons } from './icons.mjs';
+import { deco, letterIcons, wordIcons } from './icons.mjs';
 
 const BOOK_META = {
   1: { name: 'Book 1 · Lines & Shapes', kicker: 'Evie’s Writing Workbook' },
@@ -201,21 +201,23 @@ export function capitalLetterPage(entry, idx, total, book = 2, n, nTotal) {
 /* ---------------------------------------------------------- Book 3: cursive letters & words */
 
 export function cursiveLetterPage(entry, idx, total, book = 3, n, nTotal) {
-  const { letter, tip, accent } = entry;
+  const { letter, word, tip, accent } = entry;
+  const icon = letterIcons[letter.toUpperCase()] || deco.star;
   const rep = (count) => Array.from({ length: count }, () => letter);
 
   const inner = `
     ${header({ kicker: `Book 3 · Cursive Letters · Letter ${n} of ${nTotal}`, title: `Little “${letter}”`, badge: deco.pencil })}
     <div class="letter-hero">
       <div class="big-letter hand-font" style="font-size:56pt;">${letter}</div>
-      <div class="icon-card" style="background:var(--accent-bg);">${deco.star}</div>
-      <div class="word-label">In VIC Modern Cursive</div>
+      <div class="icon-card" style="background:var(--accent-bg);">${icon}</div>
+      <div class="word-label">${letter} is for ${word}</div>
     </div>
     ${tipBox({ text: tip, say: 'Nice and joined-up!', icon: deco.check })}
     <div class="stack">
-      ${guide4Row({ h: 24, mid: 9, base: 17, items: rep(4), sizeMm: 16 })}
-      ${guide4Row({ h: 22, mid: 8, base: 15, items: rep(5), sizeMm: 14 })}
-      ${guide4Row({ h: 22, mid: 8, base: 15, items: [] })}
+      ${guide4Row({ h: 22, mid: 8, base: 15, items: rep(4), sizeMm: 15 })}
+      ${guide4Row({ h: 20, mid: 7, base: 14, items: rep(5), sizeMm: 13 })}
+      ${guide4Row({ h: 20, mid: 7, base: 14, items: [] })}
+      ${guide4Row({ h: 20, mid: 7, base: 14, items: [] })}
     </div>
     ${footer({ book, pageNum: idx, total })}`;
   return page(accent, 'p-cursive', inner);
@@ -223,20 +225,22 @@ export function cursiveLetterPage(entry, idx, total, book = 3, n, nTotal) {
 
 export function cursiveWordPage(entry, idx, total, book = 3, n, nTotal) {
   const { word, tip, accent } = entry;
+  const icon = wordIcons[word] || deco.flower;
   const rep = (count) => Array.from({ length: count }, () => word);
 
   const inner = `
     ${header({ kicker: `Book 3 · First Words · Word ${n} of ${nTotal}`, title: `“${word}”`, badge: deco.heart })}
     <div class="letter-hero">
       <div class="big-letter hand-font" style="font-size:44pt;">${word}</div>
-      <div class="icon-card">${deco.flower}</div>
+      <div class="icon-card">${icon}</div>
       <div class="word-label">Trace it, then write your own!</div>
     </div>
     ${tipBox({ text: tip, say: `Keep your pencil moving — don’t lift it!`, icon: deco.check })}
     <div class="stack">
-      ${guide4Row({ h: 26, mid: 10, base: 19, items: rep(2), sizeMm: 17 })}
-      ${guide4Row({ h: 24, mid: 9, base: 17, items: rep(3), sizeMm: 15 })}
-      ${guide4Row({ h: 24, mid: 9, base: 17, items: [] })}
+      ${guide4Row({ h: 24, mid: 9, base: 17, items: rep(2), sizeMm: 15 })}
+      ${guide4Row({ h: 22, mid: 8, base: 15, items: rep(3), sizeMm: 13 })}
+      ${guide4Row({ h: 22, mid: 8, base: 15, items: [] })}
+      ${guide4Row({ h: 22, mid: 8, base: 15, items: [] })}
     </div>
     ${footer({ book, pageNum: idx, total })}`;
   return page(accent, 'p-word', inner);

@@ -8,7 +8,7 @@ A three-book series of printable A4 handwriting worksheets that takes a
 |---|---|---|---|
 | 1 · Lines & Shapes | [`01-lines-and-shapes.pdf`](output/01-lines-and-shapes.pdf) | 13 | Pre-writing fine-motor practice, in developmental order: straight lines, circles, crosses, diagonals, squares, triangles, zig-zags, waves, loops and spirals. |
 | 2 · Capital Letters | [`02-capital-letters.pdf`](output/02-capital-letters.pdf) | 28 | Big single-stroke capitals A–Z (one page each, "A is for Apple" style), plus a bonus "trace my name" page. |
-| 3 · Cursive Words | [`03-cursive-words.pdf`](output/03-cursive-words.pdf) | 42 | A note for grown-ups, a full cursive alphabet reference, all 26 lowercase cursive letters, 12 first words (*mum, dad, cat, dog, sun, hat, run, big, red, yes, bee, fox*), and a bonus "my name in cursive" page. |
+| 3 · Cursive Words | [`03-cursive-words.pdf`](output/03-cursive-words.pdf) | 42 | A note for grown-ups, a full cursive alphabet reference, all 26 lowercase cursive letters ("b is for Ball" style, reusing Book 2's words/emoji), 12 first words (*mum, dad, cat, dog, sun, hat, run, big, red, yes, bee, fox*), and a bonus "my name in cursive" page. |
 
 Print at 100% scale (no "fit to page") on A4 paper for the ruled guide
 lines to come out at a true, pencil-friendly size.
