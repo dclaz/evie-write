@@ -15,6 +15,10 @@ lines to come out at a true, pencil-friendly size.
 
 ## Design notes
 
+- **Page backgrounds are plain white** (no cream tint, no decorative dot
+  texture behind the content) so pages print cleanly on regular paper
+  without laying down a full-page ink/toner wash. Colour is reserved for
+  the deliberate accents — headers, tip boxes, guide lines, icons.
 - **Fonts** are the genuine Australian school handwriting fonts from Google
   Fonts, self-hosted in [`src/fonts/`](src/fonts) (SIL Open Font License,
   free for any use):

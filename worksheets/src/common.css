@@ -37,7 +37,7 @@
 :root {
   --ink: #3a3a4a;
   --soft-ink: #6b6b80;
-  --paper: #fffdf8;
+  --paper: #ffffff;
   --line-baseline: #4a5a8a;
   --line-mid: #9fb0d9;
   --line-faint: #c9d2e6;
@@ -83,17 +83,6 @@ html, body {
   flex-direction: column;
 }
 .page:last-child { page-break-after: auto; break-after: auto; }
-
-/* --- decorative dotted paper texture, very faint --- */
-.page::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #00000009 1px, transparent 1.3px);
-  background-size: 9mm 9mm;
-  opacity: 0.5;
-}
 
 /* ---------- header ---------- */
 .wsheader {
