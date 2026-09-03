@@ -41,6 +41,7 @@
   --line-baseline: #4a5a8a;
   --line-mid: #9fb0d9;
   --line-faint: #c9d2e6;
+  --line-ghost: #e0e6f2;
   --trace-gray: #cfd3dc;
 
   --coral: #ff8b7b;
@@ -281,3 +282,29 @@ html, body {
 .stack { display: flex; flex-direction: column; gap: 5mm; z-index:1; flex: 1; justify-content: space-between; }
 .center-icons { display: flex; align-items: center; justify-content: center; gap: 10mm; z-index: 1; flex: 1; }
 .hidden-print-note { font-size: 8pt; color: var(--soft-ink); }
+
+/* ---------- Book 2: stroke-order diagram ----------
+   Sits in the dead space to the right of the "A is for Apple" flashcard, so
+   the page gains a stroke guide without gaining height. */
+.stroke-card {
+  margin-left: auto;
+  flex: 0 0 auto;
+  width: 34mm;
+  border: 1.4pt solid var(--accent, var(--sky));
+  border-radius: 6mm;
+  background: var(--accent-bg, #eef4fd);
+  padding: 2.5mm 2mm 3mm 2mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1mm;
+}
+.stroke-card-label {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: 8.5pt;
+  color: var(--accent-dk, var(--sky-dk));
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.stroke-card-art { width: 24mm; height: 32mm; }

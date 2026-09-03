@@ -4,10 +4,11 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
-import { SHAPES, CAPITAL_LETTERS, CURSIVE_LETTERS, CURSIVE_WORDS, CHILD_NAME } from './data.mjs';
+import { SHAPES, ROADS, CAPITAL_LETTERS, CURSIVE_LETTERS, CURSIVE_WORDS, CHILD_NAME } from './data.mjs';
 import {
-  shapePage, capitalLetterPage, cursiveLetterPage, cursiveWordPage,
-  coverPage, introPage, namePageCaps, namePageCursive, alphabetReferencePage,
+  shapePage, roadPage, downRoadPage, spiralRoadPage,
+  capitalLetterPage, cursiveLetterPage, cursiveWordPage,
+  coverPage, introPage, roadLegend, namePageCaps, namePageCursive, alphabetReferencePage,
 } from './templates.mjs';
 import { deco } from './icons.mjs';
 
@@ -32,13 +33,32 @@ ${pagesHtml.join('\n')}
 
 /* ============================== BOOK 1 ============================== */
 function buildBook1() {
-  const total = SHAPES.length + 1;
+  const total = 1 + SHAPES.length + 1 + ROADS.length;
   const pages = [];
   pages.push(coverPage({
     book: 1, accent: 'sky', badge: deco.rainbow,
     subtitle: 'Wobbly lines, round circles and pointy triangles — the very first steps to writing!',
   }));
   SHAPES.forEach((s, i) => pages.push(shapePage(s, i + 2, total, 1)));
+
+  // Part 2 swaps the exercise around: instead of following a line, stay
+  // inside one. Worth its own divider so the change of rules is obvious.
+  const roadStart = 2 + SHAPES.length;
+  pages.push(introPage({
+    book: 1, accent: 'mint', title: 'Part 2 · Roads & Paths', idx: roadStart, total,
+    paragraphs: [
+      `So far every page has asked ${CHILD_NAME} to follow a line. These next pages ask for the opposite: <b>stay between two lines</b>, without touching either edge.`,
+      `That's the skill that later keeps letters sitting neatly between the ruled lines on a page — and it's much harder than it looks, so the roads start nice and wide.`,
+      `Each road gets narrower as you go down the page, so stop wherever it stops being fun. From here on the marks on the page mean two different things:`,
+    ],
+    figure: roadLegend(),
+  }));
+  ROADS.forEach((r, i) => {
+    const idx = roadStart + 1 + i;
+    if (r.kind === 'down') pages.push(downRoadPage(r, idx, total, 1));
+    else if (r.kind === 'spiral') pages.push(spiralRoadPage(r, idx, total, 1));
+    else pages.push(roadPage(r, idx, total, 1));
+  });
   return wrapDoc('Book 1 — Lines & Shapes', pages);
 }
 
