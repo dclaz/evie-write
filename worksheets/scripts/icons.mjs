@@ -26,6 +26,21 @@ function loadEmoji(name) {
   return raw.replace('<svg ', '<svg width="100%" height="100%" ');
 }
 
+// Same artwork, but as a data: URI for use inside an <image> element. Inline
+// <svg> can't be positioned in another SVG's user coordinates (a nested <svg>
+// with width="100%" resolves against the wrong box), so path pages — which
+// need the start/finish picture sitting exactly on the road — reference the
+// emoji through <image x= y= width= height= href=...> instead.
+// Inline <svg> for the same artwork, by name — for pages whose decoration is
+// chosen from data rather than fixed in the template (e.g. a road page badges
+// itself with wherever that road leads).
+export const emoji = loadEmoji;
+
+export function emojiHref(name) {
+  const raw = readFileSync(path.join(EMOJI_DIR, `${name}.svg`), 'utf8');
+  return 'data:image/svg+xml;base64,' + Buffer.from(raw, 'utf8').toString('base64');
+}
+
 /* ---------------- decorative corner / badge icons ---------------- */
 
 export const deco = {

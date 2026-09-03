@@ -47,25 +47,104 @@ export const SHAPES = [
     say: 'Up to the point, then down!',
     tip: 'Slide up to the point, slide down the other side, then straight across to close it.',
   },
+  // `pattern` shapes run right across the page instead of sitting in tiles:
+  // a rhythm needs a long run, not one and a half cycles in a little box.
+  // `big` gives the spiral fewer, larger tiles so its turns stay far enough
+  // apart for a pencil to fit between them.
   {
-    id: 'zigzag', title: 'Zig Zag', accent: 'mint',
+    id: 'zigzag', title: 'Zig Zag', accent: 'mint', pattern: true,
     say: 'Zig! Zag! Zig! Zag!',
-    tip: 'Bounce your pencil up and down like little mountains.',
+    tip: 'Bounce your pencil up and down like little mountains — all the way across, without stopping.',
   },
   {
-    id: 'wave', title: 'Wavy Line', accent: 'sky',
+    id: 'wave', title: 'Wavy Line', accent: 'sky', pattern: true,
     say: 'Up and over, like the sea!',
-    tip: 'Curve gently up and down, smooth like water. No sharp corners!',
+    tip: 'Curve gently up and down, smooth like water. No sharp corners, and don\u2019t lift your pencil!',
   },
   {
-    id: 'loop', title: 'Loop the Loop', accent: 'lav',
+    id: 'loop', title: 'Loop the Loop', accent: 'lav', pattern: true,
     say: 'Round, up, and over!',
-    tip: 'Swing your pencil up, round in a loop, then straight into the next loop.',
+    tip: 'Swing up, curl right around in a loop, then straight on into the next one. This is how cursive letters join!',
   },
   {
-    id: 'spiral', title: 'Snail Spiral', accent: 'sun',
+    id: 'spiral', title: 'Snail Spiral', accent: 'sun', big: true,
     say: 'Round and round, bigger and bigger!',
     tip: 'Start in the middle. Curl round and round, getting bigger every time.',
+  },
+];
+
+/* ============================================================
+   BOOK 1, part 2 — Roads & Paths (draw BETWEEN two lines)
+
+   Tracing a dotted line trains accuracy ON a target; staying inside a
+   channel trains control WITHIN a boundary — which is the skill that
+   actually transfers to keeping a letter between two ruled lines. Each
+   page repeats one shape with a road that gets narrower down the page,
+   and the two easiest levels keep a faint dotted centreline for support.
+   `kind` picks the geometry generator in templates.mjs; `from`/`to` are
+   filenames in src/emoji/, drawn at the start and finish of every road.
+   ============================================================ */
+export const ROADS = [
+  {
+    id: 'straightRoad', kind: 'straight', title: 'The Long Road', accent: 'sky',
+    from: 'dog', to: 'ball',
+    say: 'Stay on the road!',
+    tip: 'Drive your pencil from the puppy all the way to the ball. Try not to bump the edges!',
+    levels: [
+      { h: 30, chan: 24, guide: true },
+      { h: 26, chan: 18, guide: true },
+      { h: 22, chan: 13 },
+      { h: 18, chan: 9 },
+    ],
+  },
+  {
+    id: 'downRoad', kind: 'down', title: 'Rain Comes Down', accent: 'lav',
+    from: 'cloud', to: 'flower',
+    say: 'Down, down, down!',
+    tip: 'Start at each cloud and bring the rain straight down to the flower. Keep inside the lines!',
+    channels: [24, 19, 15, 11, 8],
+  },
+  {
+    id: 'waveRoad', kind: 'wave', title: 'The Wavy River', accent: 'mint',
+    from: 'duck', to: 'nest',
+    waves: 3,
+    say: 'Smooth like water!',
+    tip: 'Swim the duck home along the river. Curve gently — no sharp corners, and no splashing over the banks!',
+    levels: [
+      { h: 44, chan: 20, guide: true },
+      { h: 40, chan: 14, guide: true },
+      { h: 36, chan: 10 },
+    ],
+  },
+  {
+    id: 'zigzagRoad', kind: 'zigzag', title: 'Zig Zag Mountain', accent: 'coral',
+    from: 'fox', to: 'mountain',
+    waves: 3,
+    say: 'Zig! Zag! Zig! Zag!',
+    tip: 'Climb the fox up to the mountain. Stop at each pointy corner, then set off the other way!',
+    levels: [
+      { h: 44, chan: 20, guide: true },
+      { h: 40, chan: 14, guide: true },
+      { h: 36, chan: 10 },
+    ],
+  },
+  {
+    id: 'bumpRoad', kind: 'bumps', title: 'Over the Hills', accent: 'sun',
+    from: 'cat', to: 'house',
+    waves: 3,
+    say: 'Up and over, up and over!',
+    tip: 'Take the cat home over every hill. Go all the way up and all the way down — no shortcuts!',
+    levels: [
+      { h: 44, chan: 18, guide: true },
+      { h: 40, chan: 13, guide: true },
+      { h: 36, chan: 9 },
+    ],
+  },
+  {
+    id: 'spiralRoad', kind: 'spiral', title: 'The Snail Shell', accent: 'pink',
+    from: 'bee', to: 'flower',
+    say: 'Round and round, bigger and bigger!',
+    tip: 'Start with the bee in the middle. Wind all the way round and round until you reach the flower.',
   },
 ];
 
@@ -93,8 +172,8 @@ const TIP_FOR = {
   J: 'Straight line down, then curve round like a hook at the bottom.',
   K: 'Straight line down. Then two slanty lines meeting in the middle.',
   L: 'Straight line down, then straight across the bottom.',
-  M: 'Down, up to a point, down again, then up.',
-  N: 'Down, slanty line down to the other side, then up.',
+  M: 'Straight line down. Then down to the middle and back up to the top. Then down again.',
+  N: 'Straight line down. Then a slanty line down to the corner. Then one more line down.',
   O: 'One big curve all the way round, like a circle.',
   P: 'Straight line down, then a round bump at the top.',
   Q: 'Curve round like an O, then a little tail at the bottom.',
